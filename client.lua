@@ -3,6 +3,10 @@ ESX = exports["es_extended"]:getSharedObject()
 bags = {}
 havebag = false
 
+--#############################################################################
+--##                            Released By Nyteros                          ##
+--#############################################################################
+
 function DepositBag(bag)
     while havebag do
         Citizen.Wait(0)
