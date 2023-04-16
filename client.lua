@@ -10,7 +10,7 @@ havebag = false
 function DepositBag(bag)
     while havebag do
         Citizen.Wait(0)
-        ESX.ShowHelpNotification("Appuyez sur ~INPUT_DETONATE~ pour déposer le sac")
+        ESX.ShowHelpNotification(Config.Translate[Config.Lang].notification.drop_bag)
         if IsControlJustPressed(0, 47) then
             RequestAnimDict("random@domestic") while not HasAnimDictLoaded("random@domestic") do Citizen.Wait(1) end
             TaskPlayAnim(PlayerPedId(), "random@domestic", "pickup_low", 8.0, 1.0, 500, 33, 0.0, false, false, false)
@@ -65,7 +65,7 @@ function TakeBag(bag)
     RemoveAnimSet("move_m@bag")
     while havebag do
         Citizen.Wait(0)
-        ESX.ShowHelpNotification("Appuyez sur ~INPUT_DETONATE~ pour déposer le sac")
+        ESX.ShowHelpNotification(Config.Translate[Config.Lang].notification.drop_bag)
         if IsControlJustPressed(0, 47) then
             RequestAnimDict("random@domestic") while not HasAnimDictLoaded("random@domestic") do Citizen.Wait(1) end
             TaskPlayAnim(PlayerPedId(), "random@domestic", "pickup_low", 8.0, 1.0, 500, 33, 0.0, false, false, false)
@@ -92,18 +92,19 @@ Citizen.CreateThread(function()
             nearbag = true
             timer = 1
             if distance <= 1.5 then
-                ESX.ShowHelpNotification("Appuyez sur ~INPUT_CONTEXT~ pour ouvrir le sac\nAppuyez sur ~INPUT_DETONATE~ pour prendre le sac")
+                help_notif
+                ESX.ShowHelpNotification(Config.Translate[Config.Lang].notification.help_notif)
                 if IsControlJustPressed(0, 51) then
                     if nearbag and not havebag then
                         OpenBag(bag)
                     else
-                        ShowNotification("~r~Erreur")
+                        ShowNotification(Config.Translate[Config.Lang].notification.error)
                     end
                 elseif IsControlJustPressed(0,47) then
                     if nearbag and not havebag and not bagmenuisopen then
                         TakeBag(bag)
                     else
-                        ShowNotification("~r~Erreur")
+                        ShowNotification(Config.Translate[Config.Lang].notification.error)
                     end
                 end
                 if nearbag and bagmenuisopen  then

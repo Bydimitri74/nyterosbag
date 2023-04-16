@@ -29,6 +29,7 @@ client_scripts {
 client_scripts {
     "client.lua", 
     "menu.lua",
+    "config.lua",
     "utils/*.lua",
 }
 
@@ -36,6 +37,7 @@ server_scripts {
     
     '@mysql-async/lib/MySQL.lua',
     "server.lua",
+    "config.lua",
     "utils/*.lua",
 
 }

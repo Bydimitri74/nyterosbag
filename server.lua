@@ -98,12 +98,12 @@ AddEventHandler("NyterosBags:Deposit", function(baginfo, item, quantity, weight)
             end
             TriggerClientEvent("NyterosBags:Refresh", -1, bags)
             xPlayer.removeInventoryItem(item, quantity)
-            TriggerClientEvent("NyterosBags:ShowNotification", source, "Vous venez de déposer ~y~x" .. quantity .. " ~s~de ~b~" .. xPlayer.getInventoryItem(item).label)
+            TriggerClientEvent("NyterosBags:ShowNotification", source, Config.Translate[Config.Lang].notification.deposit .. quantity .. " ~b~" .. xPlayer.getInventoryItem(item).label)
         else
-            TriggerClientEvent("NyterosBags:ShowNotification", source, "Espace insuffisant")
+            TriggerClientEvent("NyterosBags:ShowNotification", source, Config.Translate[Config.Lang].notification.insuffisant_space)
         end
     else
-        TriggerClientEvent("NyterosBags:ShowNotification", source, "Vous n'avez pas assez de ~b~" .. xPlayer.getInventoryItem(item).label)
+        TriggerClientEvent("NyterosBags:ShowNotification", source, Config.Translate[Config.Lang].notification.not_enough .. xPlayer.getInventoryItem(item).label)
     end
 end)
 
@@ -127,12 +127,12 @@ AddEventHandler("NyterosBags:Take", function(baginfo, item, quantity)
                     end
                     TriggerClientEvent("NyterosBags:Refresh", -1, bags)
                     xPlayer.addInventoryItem(item, quantity)
-                    TriggerClientEvent("NyterosBags:ShowNotification", source, "Vous venez de prendre ~y~x" .. quantity .. " ~s~de ~b~" .. xPlayer.getInventoryItem(item).label)
+                    TriggerClientEvent("NyterosBags:ShowNotification", source, Config.Translate[Config.Lang].notification.take .. quantity .. " ~b~" .. xPlayer.getInventoryItem(item).label)
                 else
-                    TriggerClientEvent("NyterosBags:ShowNotification", source, "Vous ne pouvez pas porté ~y~x" .. quantity .. " ~b~" .. xPlayer.getInventoryItem(item).label)
+                    TriggerClientEvent("NyterosBags:ShowNotification", source, Config.Translate[Config.Lang].notification.cant_take .. quantity  .. xPlayer.getInventoryItem(item).label)
                 end
             else
-                TriggerClientEvent("NyterosBags:ShowNotification", source, "Il n'y pas assez de ~b~" .. xPlayer.getInventoryItem(item).label .. " ~s~dans le sac")
+                TriggerClientEvent("NyterosBags:ShowNotification", source, Config.Translate[Config.Lang].notification.not_enough .. xPlayer.getInventoryItem(item).label .. Config.Translate[Config.Lang].notification.in_bag)
             end
         end
     end
