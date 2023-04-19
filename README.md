@@ -10,5 +10,6 @@ Features:
  - Bags respawn after reboot
  - Optimized
 
-Preview:  https://streamable.com/uc41nc 
+Preview:  https://streamable.com/uc41nc
+
 My discord if you want more scripts: https://discord.gg/ZA3hvfBQt8
