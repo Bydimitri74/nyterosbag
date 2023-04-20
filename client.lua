@@ -92,7 +92,6 @@ Citizen.CreateThread(function()
             nearbag = true
             timer = 1
             if distance <= 1.5 then
-                help_notif
                 ESX.ShowHelpNotification(Config.Translate[Config.Lang].notification.help_notif)
                 if IsControlJustPressed(0, 51) then
                     if nearbag and not havebag then
