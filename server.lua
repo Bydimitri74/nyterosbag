@@ -4,6 +4,11 @@ bags = {}
 
 RegisterServerEvent("NyterosBags:CreateBag")
 AddEventHandler("NyterosBags:CreateBag", function(coords)
+     local _src = source
+    if #(GetEntityCoords(GetPlayerPed(_src)) - vector3(coords.x, coords.y, coords.z)) > 5 then
+        DropPlayer(_src, "Tentative de Cheat")
+        return
+    end 
     MySQL.Async.execute("INSERT INTO bags (pos, inventory) VALUES (@pos, @inventory)", {
         ["@pos"] = json.encode(coords),
         ["@inventory"] = json.encode({}),
